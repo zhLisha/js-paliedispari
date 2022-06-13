@@ -7,30 +7,17 @@
 
 // Chiediamo all'utente Pari o Dispari + un numero
 const userAnswer = prompt('Scrivi pari o dispari');
-const userNumber = prompt('Dammi un numero');
+const userNumber = parseInt( prompt('Dammi un numero') );
+console.log(userNumber);
+console.log(userAnswer);
 
+// Invochiamo la funzione numero random
+const randomNumberPc = numberPc(1, 10);
+// Invochiamo la funzione Somma dei numeri random e dell'utente
+const finalResult = sumAllNumber(userNumber, randomNumberPc)
+// Invochiamo la funzione pari dispari
+const numberEvenOrOdd = isEvenorOdd(finalResult);
 
-// Generiamo un numero random per il pc
-const randomNumberPc = numberPc(1, 1000);
-function numberPc(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// Somma fra numeri dell'utente e rundomNumberPc 
-const finalResult = sumAllNumbers(userNumber, randomNumberPc);
-function sumAllNumbers(number, number1) {
-    let sum = parseInt(number) + number1; 
-    return sum;
-}
-
-
-// Verifichiamo se il numero e' pari o dispari
-let numberEvenOrOdd;
-if(finalResult % 2 !== 0) {
-    numberEvenOrOdd = 'dispari';
-} else {
-    numberEvenOrOdd = 'pari';
-}
 
 // Verifichiamo che la risposta inserita dall'utente e' uguale al risultato ottenuto dalla somma dei suoi numeri e quello random
 if(userAnswer === numberEvenOrOdd) {
@@ -38,3 +25,31 @@ if(userAnswer === numberEvenOrOdd) {
 } else {
     alert(`Mi dispiace, hai dato la risposta sbagliato. Risultato: ${userNumber} + ${randomNumberPc} = ${finalResult}`)
 }
+
+
+// Generiamo un numero random per il pc
+function numberPc(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Somma fra numeri dell'utente e rundomNumberPc 
+function sumAllNumber(number, numer1) {
+    const sum = number + numer1; 
+    return sum;
+}
+
+// Verifichiamo se il numero e' pari o dispari
+function isEvenorOdd(number) {
+    let sumAllNumber;
+    if(number % 2 !== 0) {
+        sumAllNumber = 'dispari';
+    } else {
+        sumAllNumber = 'pari';
+    }
+    return sumAllNumber;
+}
+
+
+
+
+
