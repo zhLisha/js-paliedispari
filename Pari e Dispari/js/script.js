@@ -8,8 +8,7 @@
 // Chiediamo all'utente Pari o Dispari + un numero
 const userAnswer = prompt('Scrivi pari o dispari');
 const userNumber = parseInt( prompt('Dammi un numero') );
-console.log(userNumber);
-console.log(userAnswer);
+
 
 // Invochiamo la funzione numero random
 const randomNumberPc = numberPc(1, 10);
